@@ -1,0 +1,90 @@
+/**
+ * Fonts
+ */
+@font-face {
+  font-family: "AlternateGothicEF-NoTwo";
+  src: url("../fonts/AlternateGothicEF-NoTwo.ttf");
+}
+@font-face {
+  font-family: "AlternateGothicEF-NoThree";
+  src: url("../fonts/AlternateGothicEF-NoThree.ttf");
+}
+body {
+  overflow: hidden;
+}
+#container {
+  background-color: #2d2d2d;
+  border-radius: 7px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  white-space: nowrap;
+}
+.map {
+  position: relative;
+  width: 222px;
+  height: 75px;
+  display: inline-block;
+  color: #f0e9c8;
+  font-family: "AlternateGothicEF-NoThree", sans-serif;
+  opacity: 0.5;
+  -webkit-transition: width 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out;
+}
+.name {
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  font-size: 22pt;
+}
+.team {
+  position: absolute;
+  bottom: 4px;
+  /* left handled by .blue & .red */
+  font-size: 20pt;
+}
+.team.blue,
+.swapped .team.red {
+  left: 7px;
+}
+.team.red,
+.swapped .team.blue {
+  left: 146px;
+}
+.score {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  font-size: 20pt;
+  text-align: center;
+}
+.score.blue,
+.swapped .score.red {
+  width: 20px;
+  right: 118px;
+  left: auto;
+  text-align: right;
+  direction: rtl;
+}
+.score.red,
+.swapped .score.blue {
+  width: 20px;
+  left: 118px;
+  right: auto;
+  text-align: left;
+}
+.selected {
+  opacity: 1;
+}
+.selected .team.blue {
+  color: #557d91;
+}
+.selected .team.red {
+  color: #c34646;
+}
+.hidden {
+  width: 0;
+  overflow: hidden;
+}

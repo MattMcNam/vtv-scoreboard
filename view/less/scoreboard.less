@@ -1,0 +1,130 @@
+/**
+ * Fonts
+ */
+@font-face {
+  font-family: "AlternateGothicEF-NoTwo";
+  src: url("../fonts/AlternateGothicEF-NoTwo.ttf");
+}
+
+@font-face {
+  font-family: "AlternateGothicEF-NoThree";
+  src: url("../fonts/AlternateGothicEF-NoThree.ttf");
+}
+
+@AltGothNo2: "AlternateGothicEF-NoTwo", sans-serif;
+@AltGothNo3: "AlternateGothicEF-NoThree", sans-serif;
+
+@fontColor: rgb(240, 233, 200);
+@blueColor: rgb(85, 125, 145);
+@redColor: rgb(195, 70, 70);
+
+body {
+  overflow: hidden;
+}
+
+#container {
+  background-color: rgb(45, 45, 45);
+  border-radius: 7px;
+  height: 75px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.map {
+  position: relative;
+  width: 222px;
+  height: 75px;
+  display: inline-block;
+
+  color: @fontColor;
+  font-family: @AltGothNo3;
+
+  opacity: 0.5;
+
+  -webkit-transition: width 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out;
+}
+
+.name {
+  position: absolute;
+  left: 7px;
+  top: 4px;
+
+  font-size: 22pt;
+}
+
+.team {
+  position: absolute;
+  bottom: 4px;
+  /* left handled by .blue & .red */
+
+  font-size: 20pt;
+
+  &.blue {
+    left: 7px;
+  }
+
+  &.red {
+    left: 146px;
+  }
+}
+
+.score {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+
+  font-size: 20pt;
+  text-align: center;
+
+  &.blue {
+    width: 20px;
+    right: 118px;
+    left: auto;
+    text-align: right;
+    direction: rtl;
+  }
+
+  &.red {
+    width: 20px;
+    left: 118px;
+    right: auto;
+    text-align: left;
+  }
+}
+
+.swapped {
+  .team.blue {
+    &:extend(.team.red);
+  }
+  .score.blue {
+    &:extend(.score.red);
+  }
+  .team.red {
+    &:extend(.team.blue);
+  }
+  .score.red {
+    &:extend(.score.blue);
+  }
+}
+
+.selected {
+  opacity: 1;
+
+  .team.blue {
+    color: @blueColor;
+  }
+
+  .team.red {
+    color: @redColor;
+  }
+}
+
+.hidden {
+  width: 0;
+  overflow: hidden;
+}
