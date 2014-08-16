@@ -14,7 +14,8 @@ body {
 }
 #container {
   background-color: #2d2d2d;
-  border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
   height: 75px;
   position: absolute;
   top: 0;
