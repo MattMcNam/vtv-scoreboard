@@ -1,10 +1,18 @@
+#vtv-scoreboard .blue,
+#vtv-scoreboard .red {
+  color: #ffffff;
+}
 #vtv-scoreboard .blue {
   background-color: #557d91;
-  color: #ffffff;
+}
+#vtv-scoreboard .blue.swapped {
+  background-color: #c34646;
 }
 #vtv-scoreboard .red {
   background-color: #c34646;
-  color: #ffffff;
+}
+#vtv-scoreboard .red.swapped {
+  background-color: #557d91;
 }
 #vtv-scoreboard .map-container {
   padding: 4px 2px;

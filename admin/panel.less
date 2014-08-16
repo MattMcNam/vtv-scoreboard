@@ -1,12 +1,22 @@
 #vtv-scoreboard {
+  .blue, .red {
+    color: #ffffff;
+  }
+
   .blue {
     background-color: rgb(85, 125, 145);
-    color: #ffffff;
+
+    &.swapped {
+      background-color: rgb(195, 70, 70);
+    }
   }
 
   .red {
     background-color: rgb(195, 70, 70);
-    color: #ffffff;
+
+    &.swapped {
+      background-color: rgb(85, 125, 145);
+    }
   }
 
   .map-container {

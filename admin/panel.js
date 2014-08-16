@@ -3,6 +3,14 @@ $(document).ready(function() {
   var redTeam = $('#vtv-scoreboard_redTeam');
   var swapColours = $('#vtv-scoreboard_swapColour');
 
+  swapColours.change(function () {
+    if (this.checked) {
+      $('#vtv-scoreboard').find('.blue, .red').addClass('swapped');
+    } else {
+      $('#vtv-scoreboard').find('.blue, .red').removeClass('swapped');
+    }
+  });
+
   var maps = [];
   for (var i = 0; i < 5; i++) {
     maps[i] = {
