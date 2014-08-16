@@ -110,6 +110,12 @@ body {
   .score.red {
     &:extend(.score.blue);
   }
+  .selected .team.blue {
+    &:extend(.selected .team.red);
+  }
+  .selected .team.red {
+    &:extend(.selected .team.blue);
+  }
 }
 
 .selected {

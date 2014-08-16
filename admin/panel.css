@@ -1,0 +1,19 @@
+#vtv-scoreboard .blue {
+  background-color: #557d91;
+  color: #ffffff;
+}
+#vtv-scoreboard .red {
+  background-color: #c34646;
+  color: #ffffff;
+}
+#vtv-scoreboard .map-container {
+  padding: 4px 2px;
+  border-bottom: 1px solid #d3d3d3;
+}
+#vtv-scoreboard .map-container.selected {
+  border-top: 2px solid lightgreen;
+  border-bottom: 2px solid lightgreen;
+}
+#vtv-scoreboard .radio {
+  padding-left: 20px;
+}

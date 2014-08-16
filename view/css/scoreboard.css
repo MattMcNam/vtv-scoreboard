@@ -78,10 +78,12 @@ body {
 .selected {
   opacity: 1;
 }
-.selected .team.blue {
+.selected .team.blue,
+.swapped .selected .team.red {
   color: #557d91;
 }
-.selected .team.red {
+.selected .team.red,
+.swapped .selected .team.blue {
   color: #c34646;
 }
 .hidden {
