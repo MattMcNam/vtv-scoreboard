@@ -1,6 +1,13 @@
 $(document).ready(function() {
   nodecg.listenFor('update', update);
 
+  nodecg.listenFor('fadeIn', function() {
+    container.addClass('shown');
+  });
+  nodecg.listenFor('fadeOut', function() {
+    container.removeClass('shown');
+  });
+
   var maps = [];
   maps[0] = $('#map1');
   maps[1] = $('#map2');

@@ -31,8 +31,14 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  display: inline-block;
-  white-space: nowrap;
+  //display: inline-block;
+  //white-space: nowrap;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#container.shown {
+  opacity: 1;
 }
 
 .map {
