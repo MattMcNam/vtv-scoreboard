@@ -1,4 +1,6 @@
-$(document).ready(function() {
+$(document).on('ncgReady', function() {
+  'use strict';
+
   nodecg.listenFor('update', update);
 
   nodecg.listenFor('fadeIn', function() {
@@ -50,8 +52,4 @@ $(document).ready(function() {
       }
     });
   }
-
-  // Browser source fix
-  maps[3].removeClass('hidden');
-  setTimeout(function() { maps[3].addClass('hidden');}, 50);
 });

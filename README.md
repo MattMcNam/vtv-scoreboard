@@ -1,6 +1,8 @@
-vtv-scoreboard
-===========
+#vtv-scoreboard
+A graphic for tracking scores across up to five game maps
 
-Notes
----
-May require 'RemoteFonts' Enabled in Browser Source advanced settings
+### Usage
+Install to `nodecg/bundles`
+
+### Fonts
+This bundle requires `AlternateGothicEF-NoTwo` and `AlternateGothicEF-NoThree`, which have been removed.

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  'use strict';
+
   var bluTeam = $('#vtv-scoreboard_bluTeam');
   var redTeam = $('#vtv-scoreboard_redTeam');
   var swapColours = $('#vtv-scoreboard_swapColour');
@@ -66,11 +68,11 @@ $(document).ready(function() {
         scoreA: map.scoreA.text(),
         scoreB: map.scoreB.text(),
         shown: map.show.prop('checked')
-      }
+      };
     });
 
     console.log("sending: "+ data);
 
     nodecg.sendMessage('update', data);
-  })
+  });
 });
