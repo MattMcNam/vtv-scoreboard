@@ -70,7 +70,7 @@ $(function () {
             if (swapped) {
                 $('.teamA, .teamB').addClass('swapped');
             } else {
-                $('.teamA, .teamB').removeClass('swap');
+                $('.teamA, .teamB').removeClass('swapped');
             }
         }
     });
