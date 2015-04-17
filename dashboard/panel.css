@@ -1,0 +1,37 @@
+#vtv-scoreboard_maps td, #vtv-scoreboard_maps th {
+    padding: 2px;
+    text-align: center;
+}
+
+#vtv-scoreboard_maps {
+    color: white;
+    margin-bottom: 0;
+}
+
+#vtv-scoreboard_maps .neutral {
+    color: #959595;
+}
+
+#vtv-scoreboard_maps .teamColumn {
+    width: 64px;
+    max-width: 64px;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.vtv-scoreboard .container-fluid, .vtv-scoreboard .col-sm-6 {
+    padding: 1px;
+}
+
+.teamColumn.blue, .teamColumn.red.swap {
+    background-color: #5885A2;
+}
+
+.teamColumn.red, .teamColumn.blue.swap {
+    background-color: #B8383B;
+}
+
+.vtv-scoreboard .ncg-label {
+    margin-top: 0;
+}

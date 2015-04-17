@@ -1,0 +1,38 @@
+.ncg-btn-group
+    .btn-group.btn-group-justified
+        .btn-group
+            button#vtv-scoreboard_fadeOut.btn.btn-xs.btn-danger Fade out
+        .btn-group
+            button#vtv-scoreboard_fadeIn.btn.btn-xs.btn-success Fade in
+
+.ncg-label TEAMS
+.container-fluid
+    .col-sm-6
+        .input-group.input-group-sm
+            input.form-control#vtv-scoreboard_teamA
+    .col-sm-6
+        .input-group.input-group-sm
+            input.form-control#vtv-scoreboard_teamB
+
+.ncg-btn-group
+    .btn-group.btn-group-justified
+        .btn-group
+            button#vtv-scoreboard_swap.btn.btn-default.btn-xs(style='margin-bottom: 4px; margin-top: 2px;') Swap team colours
+
+table.table#vtv-scoreboard_maps
+    thead
+        tr
+            th
+            th.neutral MAP
+            th.teamColumn.blue TEAM A
+            th.teamColumn.red TEAM B
+    tbody
+    tfoot
+        tr
+            td(colspan=4)
+                .ncg-btn-group
+                    .btn-group.btn-group-justified
+                        .btn-group
+                            button#vtv-scoreboard_removeMap.btn.btn-xs.btn-danger -
+                        .btn-group
+                            button#vtv-scoreboard_addMap.btn.btn-xs.btn-success +

@@ -1,55 +1,152 @@
-$(document).on('ncgReady', function() {
-  'use strict';
+$(function () {
+    'use strict';
 
-  nodecg.listenFor('update', update);
+    function runTextFit() {
+        textFit($('.name'), {
+            alignVert: true
+        });
 
-  nodecg.listenFor('fadeIn', function() {
-    container.addClass('shown');
-  });
-  nodecg.listenFor('fadeOut', function() {
-    container.removeClass('shown');
-  });
+        textFit($('.teamA'), {
+            alignVert: true
+        });
 
-  var maps = [];
-  maps[0] = $('#map1');
-  maps[1] = $('#map2');
-  maps[2] = $('#map3');
-  maps[3] = $('#map4');
-  maps[4] = $('#map5');
+        textFit($('.teamB'), {
+            alignVert: true
+        });
 
-  var container = $('#container');
-
-  function update(data) {
-    $('.selected').removeClass('selected');
-    maps[data.selected].addClass('selected');
-
-    $('.team.blue').each(function () {
-      $(this).text(data.teamA);
-    });
-    $('.team.red').each(function() {
-      $(this).text(data.teamB);
-    });
-
-    if (data.swapped) {
-      container.addClass('swapped');
-    } else {
-      container.removeClass('swapped');
+        textFit($('.score'), {
+            alignVert: true
+        });
     }
 
-    data.maps.forEach(function(map, idx) {
-      if (map.name !== "") {
-        maps[idx].find('.name').text(map.name + ':');
-      } else {
-        maps[idx].find('.name').text('Map ' + (idx+1) + ':');
-      }
+    var container = $('#container');
 
-      maps[idx].find('.score.blue').text(map.scoreA);
-      maps[idx].find('.score.red').text(map.scoreB);
-      if (map.shown) {
-        maps[idx].removeClass('hidden');
-      } else {
-        maps[idx].addClass('hidden');
-      }
+    // Slide & fade in animation for top and bottom bar
+    var fadeInTimeline = new TimelineMax({paused: true});
+    fadeInTimeline
+        .to(container, 0.8, {
+            opacity: 1,
+            ease: Power2.easeOut
+        });
+
+    nodecg.declareSyncedVar({
+        name: 'isShowing',
+        initialValue: false,
+        setter: function(isShowing) {
+            if (isShowing) {
+                runTextFit();
+                fadeInTimeline.play();
+            } else{
+                fadeInTimeline.reverse();
+            }
+        }
     });
-  }
+
+    nodecg.declareSyncedVar({
+        name: 'teams',
+        initialValue: ['',''],
+        setter: function(teams) {
+            $('.teamA').text(teams[0]);
+            $('.teamB').text(teams[1]);
+            runTextFit();
+        }
+    });
+
+    nodecg.declareSyncedVar({
+        name: 'selectedMap',
+        initialValue: 1,
+        setter: function(map) {
+            $('.selected').removeClass('selected');
+
+            var cell = $('.map').eq(map - 1);
+            cell.addClass('selected');
+        }
+    });
+
+    nodecg.declareSyncedVar({
+        name: 'swapped',
+        initialValue: false,
+        setter: function(swapped) {
+            if (swapped) {
+                $('.teamA, .teamB').addClass('swapped');
+            } else {
+                $('.teamA, .teamB').removeClass('swap');
+            }
+        }
+    });
+
+    nodecg.declareSyncedVar({
+        name: 'maps',
+        initialValue: [{
+            name: 'cp_badlands',
+            scores: [0, 0]
+        }],
+        setter: function(maps) {
+            // If we somehow have 0 maps, go back to default
+            if (maps.length === 0) {
+                nodecg.variables.maps = [{name: 'cp_badlands', scores: [0, 0]}];
+                return;
+            }
+
+            // Has number of maps changed
+            var mapCells = $('.map');
+            if (mapCells.length === maps.length) {
+                updateMaps(maps);
+            } else {
+                recreateMaps(maps);
+            }
+        }
+    });
+
+    function updateMaps(maps) {
+        var mapCells = $('.map');
+
+        maps.forEach(function (map, idx) {
+            var cell = mapCells.eq(idx);
+
+            if (nodecg.variables.selectedMap === idx + 1) {
+                cell.addClass('selected');
+            }
+
+            cell.find('.name').text(map.name);
+            cell.find('.score').text(map.scores[0] + '-' + map.scores[1]);
+            cell.find('.teamA').text(nodecg.variables.teams[0]);
+            cell.find('.teamB').text(nodecg.variables.teams[1]);
+        });
+
+        runTextFit();
+    }
+
+    function recreateMaps(maps) {
+        container.html('');
+
+        maps.forEach(function(map, idx) {
+            var mapDiv = document.createElement('div');
+            mapDiv.className = 'map';
+
+            // Map name
+            var nameDiv = document.createElement('div');
+            nameDiv.className = 'name';
+            mapDiv.appendChild(nameDiv);
+
+            // Team A
+            var teamADiv = document.createElement('div');
+            teamADiv.className = 'teamA';
+            mapDiv.appendChild(teamADiv);
+
+            // Score
+            var scoreDiv = document.createElement('div');
+            scoreDiv.className = 'score';
+            mapDiv.appendChild(scoreDiv);
+
+            // Team B
+            var teamBDiv = document.createElement('div');
+            teamBDiv.className = 'teamB';
+            mapDiv.appendChild(teamBDiv);
+
+            container.append(mapDiv.outerHTML);
+        });
+
+        updateMaps(maps);
+    }
 });

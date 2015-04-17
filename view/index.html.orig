@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- setupScript %>
+
+    <link href="css/scoreboard.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="container">
+    <div class="map selected" id="map1">
+        <div class="name">Map 1:</div>
+        <div class="team blue">Blue</div>
+        <div class="score blue">0</div>
+        <div class="score">-</div>
+        <div class="score red">0</div>
+        <div class="team red">Red</div>
+    </div>
+    <div class="map" id="map2">
+        <div class="name">Map 2:</div>
+        <div class="team blue">Blue</div>
+        <div class="score blue">0</div>
+        <div class="score">-</div>
+        <div class="score red">0</div>
+        <div class="team red">Red</div>
+    </div>
+    <div class="map" id="map3">
+        <div class="name">Map 3:</div>
+        <div class="team blue">Blue</div>
+        <div class="score blue">0</div>
+        <div class="score">-</div>
+        <div class="score red">0</div>
+        <div class="team red">Red</div>
+    </div>
+    <div class="map hidden" id="map4">
+        <div class="name">Map 4:</div>
+        <div class="team blue">Blue</div>
+        <div class="score blue">0</div>
+        <div class="score">-</div>
+        <div class="score red">0</div>
+        <div class="team red">Red</div>
+    </div>
+    <div class="map hidden" id="map5">
+        <div class="name">Map 5:</div>
+        <div class="team blue">Blue</div>
+        <div class="score blue">0</div>
+        <div class="score">-</div>
+        <div class="score red">0</div>
+        <div class="team red">Red</div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/vtv-scoreboard.js"></script>
+</body>
+</html>

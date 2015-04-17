@@ -1,0 +1,9 @@
+[
+	{
+		"name": "scoreboard",
+		"title": "Scoreboard",
+		"width": 2,
+		"file": "panel.jade"
+	}
+]
+
